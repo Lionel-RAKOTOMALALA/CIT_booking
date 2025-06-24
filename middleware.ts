@@ -14,11 +14,8 @@ export default authMiddleware({
     "/contact",
     "/api/trpc/(.*)"
   ],
-  ignoredRoutes: [
-    "/((?!api|trpc))(_next|.+\\.[\\w]+$)", // Ignorer tous les fichiers statiques
-  ],
 });
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };
