@@ -17,7 +17,7 @@ export function SiteHeader() {
           <Link href="/" className="flex items-center space-x-2">
             <img 
               src="/454739798_122097521636469068_2130572720857980839_n.jpg" 
-              alt="SouthBooking Logo" 
+              alt="Logo SouthBooking" 
               className="h-8 w-8 object-contain"
             />
             <span className="hidden font-bold text-xl text-primary md:inline-block">
@@ -33,7 +33,7 @@ export function SiteHeader() {
             <Link href="/restaurants">Restaurants</Link>
           </Button>
           <Button asChild variant="ghost">
-            <Link href="/cars">Location de Voitures</Link>
+            <Link href="/cars">Location de voitures</Link>
           </Button>
           <Button asChild variant="ghost">
             <Link href="/attractions">Attractions</Link>
@@ -46,12 +46,12 @@ export function SiteHeader() {
           </Button>
           
           <SignedOut>
-            <SignInButton>
+            <Link href="/sign-in">
               <Button variant="ghost">
                 <User className="h-5 w-5 mr-2" />
                 <span className="hidden md:inline-block">Connexion</span>
               </Button>
-            </SignInButton>
+            </Link>
           </SignedOut>
           
           <SignedIn>

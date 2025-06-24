@@ -1,3 +1,4 @@
+import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server';
 import { createTRPCNext } from '@trpc/next';
 import { httpBatchLink } from '@trpc/client';
 import type { AppRouter } from '@/server/api/root';
@@ -25,5 +26,5 @@ export const api = createTRPCNext<AppRouter>({
   ssr: false,
 });
 
-export type RouterInputs = AppRouter['_def']['_config']['$types']['input'];
-export type RouterOutputs = AppRouter['_def']['_config']['$types']['output'];
+export type RouterInputs = inferRouterInputs<AppRouter>;
+export type RouterOutputs = inferRouterOutputs<AppRouter>;

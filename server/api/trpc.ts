@@ -1,12 +1,12 @@
 import { initTRPC, TRPCError } from '@trpc/server';
 import { type CreateNextContextOptions } from '@trpc/server/adapters/next';
-import { type Session } from '@clerk/nextjs/server';
+import { type AuthObject } from '@clerk/nextjs/server';
 import { getAuth } from '@clerk/nextjs/server';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
 
 interface CreateContextOptions {
-  session: Session | null;
+  session: AuthObject | null;
 }
 
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
@@ -17,8 +17,7 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
 
 export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   const { req } = opts;
-  const sesh = getAuth(req);
-  const session = sesh.userId ? sesh : null;
+  const session = getAuth(req);
 
   return createInnerTRPCContext({
     session,
